@@ -1,4 +1,4 @@
-export const userInformation = () => {};
+export const userInformations = () => {};
 export const listOfRepositories = () => {};
 export const listOfProjects = () => {};
 export const listOfOrganizations = () => {};
