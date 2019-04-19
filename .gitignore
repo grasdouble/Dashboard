@@ -1,3 +1,5 @@
+
+## Auto-generated ##
 # Logs
 logs
 *.log
@@ -59,3 +61,13 @@ typings/
 
 # next.js build output
 .next
+
+## Manual ##
+.DS_Store
+dist/
+
+# server
+server/src/config.js
+
+# frontend
+
