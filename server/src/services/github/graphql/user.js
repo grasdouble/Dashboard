@@ -1,4 +1,22 @@
-export const userInformations = () => {};
+export const userInformations = login => `query {
+    user(login: "${login}") {
+      name
+      email
+      company
+      bio
+      avatarUrl
+      createdAt
+      watching {
+        totalCount
+      }
+      following {
+        totalCount
+      }
+      followers {
+        totalCount
+      }
+    }
+  }`;
 export const listOfRepositories = () => {};
 export const listOfProjects = () => {};
 export const listOfOrganizations = () => {};

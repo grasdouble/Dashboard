@@ -1,9 +1,11 @@
-import { github as githubDefaultConfig} from './defaultConfig';
-import { github as githubConfig } from '../../config';
+import server from 'server';
+import { getUserInformations } from './queries';
 
-const config = {
-    ...githubDefaultConfig,
-    ...githubConfig
-};
+const { get } = server.router;
 
-
+export const routes = [
+    get('/github/login/:login', async ctx => {
+        const result = getUserInformations(ctx.params.login);
+        return result ;
+      }),
+];
