@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "babel src --out-dir dist --copy-files",
-		"start": "npm run build && node dist/app.js"
+		"start": "npm run build && node dist/app.js",
+		"test": "jest"
 	},
 	"dependencies": {
 		"node-fetch": "^2.3.0",
@@ -16,6 +17,7 @@
 		"@babel/core": "^7.4.3",
 		"@babel/plugin-transform-runtime": "^7.4.3",
 		"@babel/preset-env": "^7.4.3",
-		"@babel/runtime": "^7.4.3"
+		"@babel/runtime": "^7.4.3",
+		"jest": "^24.7.1"
 	}
 }
