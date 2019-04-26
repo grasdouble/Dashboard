@@ -7,13 +7,12 @@ cache:
 notifications:
   email: false
 
-  before_install:
-    - .travis/before-addTokenServer.sh
-
 matrix:
   fast_finish: true
   include:
     - language: node_js
+      before_script:
+        - .travis/before-addTokenServer.sh
       env: NAME=test_server
       node_js:
         - '11'
