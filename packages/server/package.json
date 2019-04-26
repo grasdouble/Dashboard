@@ -1,12 +1,24 @@
 {
-	"name": "dashboard-server",
+	"name": "@dashboard/server",
 	"version": "0.0.1",
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
+		"prepublish": "npm run build",
 		"build": "babel src --out-dir dist --copy-files",
 		"start": "npm run build && node dist/app.js",
 		"test": "jest"
+	},
+	"jest": {
+		"collectCoverageFrom": [
+			"src/**/*.{js,jsx}",
+			"!**/node_modules/**",
+			"!**/__snapshots__/**"
+		],
+		"roots": [
+			"src"
+		],
+		"testRegex": "&*\\.test\\.js$"
 	},
 	"dependencies": {
 		"node-fetch": "^2.3.0",

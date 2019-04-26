@@ -1,0 +1,22 @@
+{
+	"name": "dashboard",
+	"version": "0.0.0",
+	"license": "MIT",
+	"scripts": {
+		"postinstall": "lerna exec -- npm install",
+		"build": "lerna exec -- npm run prepublish",
+		"build:frontend": "lerna exec --scope=@dashboard/frontend -- npm run prepublish",
+		"build:server": "lerna exec --scope=@dashboard/server -- npm run prepublish",
+		"test": "lerna exec --concurrency 1 -- TZ=Europe/Paris npm test --silent",
+		"test:frontend": "lerna exec --scope=@dashboard/frontend -- TZ=Europe/Paris  npm test --silent",
+		"test:server": "lerna exec --scope=@dashboard/server -- TZ=Europe/Paris  npm test --silent"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"lerna": "^3.13.4"
+	},
+	"workspaces": [
+		"packages/frontend",
+		"packages/server"
+	]
+}

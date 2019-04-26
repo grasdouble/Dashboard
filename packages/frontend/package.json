@@ -1,0 +1,16 @@
+{
+	"name": "@dashboard/frontend",
+	"version": "0.0.1",
+	"description": "display a dashboard with info from  github, jira and maybe more",
+	"main": "index.js",
+	"license": "MIT",
+	"scripts": {
+		"test": "jest"
+	},
+	"dependencies": {
+		"tabler-react": "^1.29.0"
+	},
+	"devDependencies": {
+		"jest": "^24.7.1"
+	}
+}

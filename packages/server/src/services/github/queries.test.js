@@ -1,7 +1,7 @@
 import { getUserInformations } from './queries';
 
-describe('test', () => {
-	it('try it', () => {
+describe('test user queries', () => {
+	it('function getUserInformations', () => {
         return getUserInformations().then(data => {
             data = {user: data.user};
             expect(data.user).toBeDefined();
