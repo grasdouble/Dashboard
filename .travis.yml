@@ -15,7 +15,7 @@ matrix:
       node_js:
         - '11'
       script:
-        - npm test:server
+        - npm run test:server
 
 # branch safelist
 branches:
