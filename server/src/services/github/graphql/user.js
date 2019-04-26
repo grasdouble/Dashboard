@@ -1,4 +1,26 @@
-export const userInformations = () => {};
+/**
+ * Get basic information related to a specified login name
+ * @param {string} login 
+ */
+export const userInformations = login => `query {
+    user(login: "${login}") {
+      name
+      email
+      company
+      bio
+      avatarUrl
+      createdAt
+      watching {
+        totalCount
+      }
+      following {
+        totalCount
+      }
+      followers {
+        totalCount
+      }
+    }
+  }`;
 export const listOfRepositories = () => {};
 export const listOfProjects = () => {};
 export const listOfOrganizations = () => {};

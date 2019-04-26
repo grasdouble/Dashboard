@@ -1,11 +1,10 @@
 // Include the server in your file
 import server from 'server';
-import github from './services/github';
+
+import { routes as githubRoutes} from './services/github';
 
 const { get } = server.router;
 const { header } = server.reply;
-
-
 
 const cors = [
   ctx => header("Access-Control-Allow-Origin", "*"),
@@ -17,4 +16,5 @@ server({
     port: 4000,
   }, cors, [
   get('/', ctx => 'Hello world'),
+  ...githubRoutes,
 ]);
