@@ -7,6 +7,9 @@ cache:
 notifications:
   email: false
 
+  before_install:
+    - .travis/before-addTokenServer.sh
+
 matrix:
   fast_finish: true
   include:
@@ -22,3 +25,5 @@ branches:
   only:
     - develop
     - master
+
+language: node_js
