@@ -1,12 +1,13 @@
 {
-	"name": "@dashboard/server",
+	"name": "@dashboard/backend",
 	"version": "0.0.1",
 	"main": "index.js",
+	"private": true,
 	"license": "MIT",
 	"scripts": {
 		"prepublish": "npm run build",
 		"build": "babel src --out-dir dist --copy-files",
-		"start": "npm run build && node dist/app.js",
+		"start": "node dist/app.js",
 		"test": "jest"
 	},
 	"jest": {

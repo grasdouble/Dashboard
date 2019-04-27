@@ -2,6 +2,7 @@ git:
   quiet: true
 
 cache:
+  yarn: true
   directories:
     - node_modules
 notifications:
@@ -13,12 +14,17 @@ matrix:
     - language: node_js
       before_script:
         - .travis/before-addTokenServer.sh
-      env: NAME=test_server
+      env: NAME=test_backend
       node_js:
         - '11'
       script:
-        - npm run test:server
-
+        - npm run test:backend
+    - language: node_js
+      env: NAME=test_frontend
+      node_js:
+        - '11'
+      script:
+        - npm run test:frontend
 # branch safelist
 branches:
   only:
