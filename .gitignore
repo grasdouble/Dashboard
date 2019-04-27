@@ -68,7 +68,7 @@ dist/
 build/
 
 # server
-packages/server/src/config.js
+packages/backend/src/config.js
 
 # frontend
 
