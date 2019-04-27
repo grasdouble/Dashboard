@@ -65,6 +65,7 @@ typings/
 ## Manual ##
 .DS_Store
 dist/
+build/
 
 # server
 packages/server/src/config.js

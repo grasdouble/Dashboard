@@ -1,5 +1,5 @@
 {
-	"packages": ["packages/frontend", "packages/server"],
+	"packages": ["packages/frontend", "packages/backend"],
 	"version": "0.0.1",
 	"npmClient": "npm",
 	"command": {
