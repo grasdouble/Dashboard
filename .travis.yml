@@ -19,7 +19,12 @@ matrix:
         - '11'
       script:
         - npm run test:backend
-
+    - language: node_js
+      env: NAME=test_frontend
+      node_js:
+        - '11'
+      script:
+        - npm run test:frontend
 # branch safelist
 branches:
   only:
