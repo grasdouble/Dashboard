@@ -3,7 +3,6 @@ import { getUserInformations } from './queries';
 describe('test user queries', () => {
 	it('function getUserInformations', () => {
         return getUserInformations().then(data => {
-            data = {user: data.user};
             expect(data.user).toBeDefined();
             expect(data.user.avatarUrl).toBeDefined();
             expect(data.user.bio).toBeDefined();
