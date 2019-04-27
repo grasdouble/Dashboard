@@ -1,0 +1,28 @@
+git:
+  quiet: true
+
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
+
+matrix:
+  fast_finish: true
+  include:
+    - language: node_js
+      before_script:
+        - .travis/before-addTokenServer.sh
+      env: NAME=test_server
+      node_js:
+        - '11'
+      script:
+        - npm run test:server
+
+# branch safelist
+branches:
+  only:
+    - develop
+    - master
+
+language: node_js

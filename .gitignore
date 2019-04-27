@@ -67,7 +67,7 @@ typings/
 dist/
 
 # server
-server/src/config.js
+packages/server/src/config.js
 
 # frontend
 
