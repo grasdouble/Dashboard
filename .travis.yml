@@ -13,7 +13,7 @@ matrix:
     - language: node_js
       before_script:
         - .travis/before-addTokenServer.sh
-      env: NAME=test_server TOKEN=e2b66f6d6a02a0464bc660e70c2edb01d3b7ae0d
+      env: NAME=test_server
       node_js:
         - '11'
       script:
