@@ -4,6 +4,7 @@
  */
 export const userInformations = login => `query {
     user(login: "${login}") {
+      login
       name
       email
       company
@@ -21,7 +22,7 @@ export const userInformations = login => `query {
       }
     }
   }`;
-export const listOfRepositories = () => {};
+
 export const listOfProjects = () => {};
 export const listOfOrganizations = () => {};
 export const listOfStar = () => {};
