@@ -1,4 +1,4 @@
-export const managePagination = ({ nbItem, isFirst, isAfter, cursor, orderBy, orderDirection }) => {
+export const managePagination = ({ nbItem = 5, isFirst = true, isAfter = true, cursor, orderBy, orderDirection }) => {
 	let count = 5;
 	if (nbItem > 20) {
 		console.warn(
