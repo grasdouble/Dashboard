@@ -1,4 +1,4 @@
-export const managePagination = ({ nbItem, isFirst, isAfter, cursor }) => {
+export const managePagination = ({ nbItem, isFirst, isAfter, cursor, orderBy, orderDirection }) => {
 	let count = 5;
 	if (nbItem > 20) {
 		console.warn(
@@ -8,12 +8,19 @@ export const managePagination = ({ nbItem, isFirst, isAfter, cursor }) => {
 		count = nbItem;
 	}
 
-	const order = isFirst ? `first:${count}` : `last:${count}`;
+	const startFrom = isFirst ? `first:${count}` : `last:${count}`;
 
-	let direction = '';
+	//PAGINATION
+	let pagination = '';
 	if (cursor) {
-		direction = isAfter ? `, after:"${cursor}"` : `, before:"${cursor}"`;
+		pagination = isAfter ? `, after:"${cursor}"` : `, before:"${cursor}"`;
 	}
 
-	return order + direction;
+	//ORDER
+	let order = '';
+	if (orderBy) {
+		order = `, orderBy:{${orderBy}, direction:${orderDirection === 'DESC' ? orderDirection : 'ASC'}}`;
+	}
+
+	return startFrom + pagination + order;
 };

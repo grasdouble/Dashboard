@@ -27,6 +27,16 @@ describe('test repositorie queries', () => {
 		cursor: null,
 	};
 
+	const customQuery = `branchProtectionRules(first:5) {
+		edges {
+		  node {
+			id
+			pattern
+			isAdminEnforced
+		  }
+		}
+	  }`;
+
 	it('function getListOfRepositories: User', async () => {
 		const owner = 'defunkt';
 
@@ -39,8 +49,9 @@ describe('test repositorie queries', () => {
 	it('function getListOfRepositories: Organization', async () => {
 		const owner = 'grasdouble';
 
-		const data = await getListOfRepositories(owner, true, pagination);
+		const data = await getListOfRepositories(owner, true, pagination, customQuery);
 		expect(data).toBeDefined;
+		console.log('eleeriteoti', JSON.stringify(data));
 		expect(data.organization).toBeDefined;
 		expect(data.repositories).toBeDefined;
 	});

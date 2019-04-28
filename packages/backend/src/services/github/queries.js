@@ -30,7 +30,7 @@ export const getUserInformations = async function(login) {
 	return response;
 };
 
-export const getListOfRepositories = async function(owner, isOrganization, pagination) {
-	const response = await fetchGithub(listOfRepositories(owner, isOrganization, pagination));
+export const getListOfRepositories = async function(owner, isOrganization, pagination, customQuery) {
+	const response = await fetchGithub(listOfRepositories(owner, isOrganization, pagination, customQuery));
 	return response;
 };
