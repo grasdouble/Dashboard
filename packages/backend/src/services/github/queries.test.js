@@ -27,32 +27,47 @@ describe('test repositorie queries', () => {
 		cursor: null,
 	};
 
-	const customQuery = `branchProtectionRules(first:5) {
-		edges {
-		  node {
-			id
-			pattern
-			isAdminEnforced
-		  }
-		}
-	  }`;
+	const customQuery = `createdAt`;
 
 	it('function getListOfRepositories: User', async () => {
 		const owner = 'defunkt';
 
-		const data = await getListOfRepositories(owner, false, pagination);
-		expect(data).toBeDefined;
-		expect(data.user).toBeDefined;
-		expect(data.repositories).toBeDefined;
+		const data = await getListOfRepositories(owner, false, pagination, undefined);
+		expect(data).toBeDefined();
+		expect(data.user).toBeDefined();
+		expect(data.user.repositories).toBeDefined();
+		expect(data.user.repositories.edges[0].node.name).toBeDefined();
 	});
 
 	it('function getListOfRepositories: Organization', async () => {
 		const owner = 'grasdouble';
 
+		const data = await getListOfRepositories(owner, true, pagination, undefined);
+		expect(data).toBeDefined();
+		expect(data.organization).toBeDefined();
+		expect(data.organization.repositories).toBeDefined();
+		expect(data.organization.repositories.edges[0].node.name).toBeDefined();
+	});
+
+	it('function getListOfRepositories: User, with customQuery', async () => {
+		const owner = 'defunkt';
+
+		const data = await getListOfRepositories(owner, false, pagination, customQuery);
+		expect(data).toBeDefined();
+		expect(data.user).toBeDefined();
+		expect(data.user.repositories).toBeDefined();
+		expect(data.user.repositories.edges[0].node.name).toBeDefined();
+		expect(data.user.repositories.edges[0].node.createdAt).toBeDefined();
+	});
+
+	it('function getListOfRepositories: Organization, with customQuery', async () => {
+		const owner = 'grasdouble';
+
 		const data = await getListOfRepositories(owner, true, pagination, customQuery);
-		expect(data).toBeDefined;
-		console.log('eleeriteoti', JSON.stringify(data));
-		expect(data.organization).toBeDefined;
-		expect(data.repositories).toBeDefined;
+		expect(data).toBeDefined();
+		expect(data.organization).toBeDefined();
+		expect(data.organization.repositories).toBeDefined();
+		expect(data.organization.repositories.edges[0].node.name).toBeDefined();
+		expect(data.organization.repositories.edges[0].node.createdAt).toBeDefined();
 	});
 });

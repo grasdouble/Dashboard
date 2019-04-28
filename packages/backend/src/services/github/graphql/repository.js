@@ -3,7 +3,7 @@ import { managePagination } from './commons';
 export const listOfRepositories = (owner, isOrganization, pagination, customQuery) => {
 	const page = managePagination(pagination);
 
-	const test = `query {
+	return `query {
       ${isOrganization ? 'organization' : 'user'}(login:"${owner}") {
         repositories(${page}) {
           edges {
@@ -17,6 +17,4 @@ export const listOfRepositories = (owner, isOrganization, pagination, customQuer
         }
       }
     }`;
-console.log(test);
-    return test;
 };
