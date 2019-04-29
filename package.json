@@ -8,7 +8,7 @@
     "build": "lerna exec -- npm run prepublish",
     "build:frontend": "lerna exec --scope=@dashboard/frontend -- npm run prepublish",
     "build:backend": "lerna exec --scope=@dashboard/backend -- npm run prepublish",
-    "test": "lerna exec --concurrency 1 -- TZ=Europe/Paris npm test --silent",
+    "test": "lerna exec --concurrency 1 -- TZ=Europe/Paris npm test --silent -- --coverage",
     "test:frontend": "lerna exec --scope=@dashboard/frontend -- TZ=Europe/Paris  npm test --silent",
     "test:backend": "lerna exec --scope=@dashboard/backend -- TZ=Europe/Paris  npm test --silent",
     "eslint": "npm run eslint:frontend && npm run eslint:backend",
