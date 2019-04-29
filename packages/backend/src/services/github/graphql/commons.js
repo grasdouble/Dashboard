@@ -11,7 +11,7 @@ export const managePagination = ({
 	if (nbItem > 20) {
 		// eslint-disable-next-line no-console
 		console.warn(
-			`The maximum value authorized for the pagination is 20. the default value is used: ${count}`,
+			'The maximum value authorized for the pagination is 20. the default value is used: ${count}',
 		);
 	} else {
 		count = nbItem;
