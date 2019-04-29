@@ -8,8 +8,6 @@ cache:
 notifications:
     email: false
 
-dist: trusty
-
 addons:
     sonarcloud:
         organization: 'grasdouble'
@@ -33,6 +31,12 @@ matrix:
               - '11'
           script:
               - npm run test:frontend
+        - language: node_js
+          env: NAME=sonar
+          node_js:
+              - '11'
+          script:
+              - sonar-scanner
 # branch safelist
 branches:
     only:
