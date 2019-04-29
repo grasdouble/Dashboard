@@ -31,10 +31,8 @@ matrix:
               - '11'
           script:
               - npm run test:frontend
-        - language: node_js
+        - language: minimal
           env: NAME=sonar
-          node_js:
-              - '11'
           script:
               - sonar-scanner
 # branch safelist
