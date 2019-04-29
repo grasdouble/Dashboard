@@ -33,10 +33,5 @@
 	"parserOptions": {
 		"ecmaVersion": 6,
 		"sourceType": "module"
-	},
-	"settings": {
-		"react": {
-			"version": "999.999.999"
-		}
 	}
 }
