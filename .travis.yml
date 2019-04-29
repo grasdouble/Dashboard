@@ -8,6 +8,8 @@ cache:
 notifications:
     email: false
 
+dist: trusty
+
 addons:
     sonarcloud:
         organization: 'grasdouble'
