@@ -31,7 +31,7 @@ matrix:
               - '11'
           script:
               - npm run test:frontend
-        - language: minimal
+        - language: generic
           env: NAME=sonar
           script:
               - sonar-scanner
