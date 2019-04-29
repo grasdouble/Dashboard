@@ -1,7 +1,0 @@
-organization=grasdouble
-projectKey=grasdouble_Dashboard
-serverUrl=https://sonarcloud.io
-serverVersion=7.8.0.23906
-dashboardUrl=https://sonarcloud.io/dashboard?id=grasdouble_Dashboard
-ceTaskId=AWpraVp_Y8peG1DLqcKx
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWpraVp_Y8peG1DLqcKx
