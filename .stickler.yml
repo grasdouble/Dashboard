@@ -1,8 +1,9 @@
 linters:
-  csslint: {  }
-  shellcheck:
-    shell: bash
+    csslint: {}
+    eslint:
+        config: './.eslintrc'
+    shellcheck:
+        shell: bash
 files:
-  ignore:
-    - 'bower_components/*'
-    - 'node_modules/*'
+    ignore:
+        - 'node_modules/*'
