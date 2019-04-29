@@ -1,35 +1,39 @@
 git:
-  quiet: true
+    quiet: true
 
 cache:
-  yarn: true
-  directories:
-    - node_modules
+    yarn: true
+    directories:
+        - node_modules
 notifications:
-  email: false
+    email: false
+
+addons:
+    sonarcloud:
+        organization: 'grasdouble'
 
 matrix:
-  fast_finish: true
-  include:
-    - language: node_js
-      before_script:
-        - .travis/before-addTokenServer.sh
-      env: NAME=test_backend
-      node_js:
-        - '11'
-      script:
-        - npm run test:backend
-    - language: node_js
-      env: NAME=test_frontend
-      node_js:
-        - '11'
-      script:
-        - npm run test:frontend
+    fast_finish: true
+    include:
+        - language: node_js
+          before_script:
+              - .travis/before-addTokenServer.sh
+          env: NAME=test_backend
+          node_js:
+              - '11'
+          script:
+              - npm run test:backend
+        - language: node_js
+          env: NAME=test_frontend
+          node_js:
+              - '11'
+          script:
+              - npm run test:frontend
 # branch safelist
 branches:
-  only:
-    - develop
-    - master
-    - /^greenkeeper/.*$/
+    only:
+        - develop
+        - master
+        - /^greenkeeper/.*$/
 
 language: node_js
