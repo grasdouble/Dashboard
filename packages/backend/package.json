@@ -1,36 +1,36 @@
 {
-	"name": "@dashboard/backend",
-	"version": "0.0.1",
-	"main": "index.js",
-	"private": true,
-	"license": "MIT",
-	"scripts": {
-		"prepublish": "npm run build",
-		"build": "babel src --out-dir dist --copy-files",
-		"start": "node dist/app.js",
-		"test": "jest"
-	},
-	"jest": {
-		"collectCoverageFrom": [
-			"src/**/*.{js,jsx}",
-			"!**/node_modules/**",
-			"!**/__snapshots__/**"
-		],
-		"roots": [
-			"src"
-		],
-		"testRegex": "&*\\.test\\.js$"
-	},
-	"dependencies": {
-		"node-fetch": "^2.3.0",
-		"server": "^1.0.18"
-	},
-	"devDependencies": {
-		"@babel/cli": "^7.4.3",
-		"@babel/core": "^7.4.3",
-		"@babel/plugin-transform-runtime": "^7.4.3",
-		"@babel/preset-env": "^7.4.3",
-		"@babel/runtime": "^7.4.3",
-		"jest": "^24.7.1"
-	}
+  "name": "@dashboard/backend",
+  "version": "0.0.1",
+  "main": "index.js",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir dist --copy-files",
+    "prepublish": "npm run build",
+    "start": "node dist/app.js",
+    "test": "jest"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/__snapshots__/**"
+    ],
+    "roots": [
+      "src"
+    ],
+    "testRegex": "&*\\.test\\.js$"
+  },
+  "dependencies": {
+    "node-fetch": "^2.3.0",
+    "server": "^1.0.18"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
+    "jest": "^24.7.1"
+  }
 }

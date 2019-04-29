@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import { managePagination } from './commons';
 
 export const listOfRepositories = (owner, isOrganization, pagination, customQuery) => {
@@ -10,7 +11,7 @@ export const listOfRepositories = (owner, isOrganization, pagination, customQuer
             node {
               id
               name
-              ${customQuery ? customQuery : ''}
+              ${customQuery || ''}
             }
             cursor
           }

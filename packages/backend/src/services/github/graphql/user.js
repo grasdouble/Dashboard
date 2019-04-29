@@ -1,6 +1,6 @@
 /**
  * Get basic information related to a specified login name
- * @param {string} login 
+ * @param {string} login
  */
 export const userInformations = login => `query {
     user(login: "${login}") {

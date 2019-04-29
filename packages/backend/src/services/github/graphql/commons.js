@@ -1,8 +1,17 @@
-export const managePagination = ({ nbItem = 5, isFirst = true, isAfter = true, cursor, orderBy, orderDirection }) => {
+/* eslint-disable import/prefer-default-export */
+export const managePagination = ({
+	nbItem = 5,
+	isFirst = true,
+	isAfter = true,
+	cursor,
+	orderBy,
+	orderDirection,
+}) => {
 	let count = 5;
 	if (nbItem > 20) {
+		// eslint-disable-next-line no-console
 		console.warn(
-			'The maximum value authorized for the pagination is 20. the default value is used: ${count}',
+			`The maximum value authorized for the pagination is 20. the default value is used: ${count}`,
 		);
 	} else {
 		count = nbItem;
@@ -10,16 +19,18 @@ export const managePagination = ({ nbItem = 5, isFirst = true, isAfter = true, c
 
 	const startFrom = isFirst ? `first:${count}` : `last:${count}`;
 
-	//PAGINATION
+	// PAGINATION
 	let pagination = '';
 	if (cursor) {
 		pagination = isAfter ? `, after:"${cursor}"` : `, before:"${cursor}"`;
 	}
 
-	//ORDER
+	// ORDER
 	let order = '';
 	if (orderBy) {
-		order = `, orderBy:{${orderBy}, direction:${orderDirection === 'DESC' ? orderDirection : 'ASC'}}`;
+		order = `, orderBy:{${orderBy}, direction:${
+			orderDirection === 'DESC' ? orderDirection : 'ASC'
+		}}`;
 	}
 
 	return startFrom + pagination + order;
