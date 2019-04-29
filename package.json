@@ -1,26 +1,49 @@
 {
-	"name": "dashboard",
-	"version": "0.0.1",
-	"license": "MIT",
-	"private": true,
-	"scripts": {
-		"postinstall": "lerna exec -- npm install",
-		"build": "lerna exec -- npm run prepublish",
-		"build:frontend": "lerna exec --scope=@dashboard/frontend -- npm run prepublish",
-		"build:backend": "lerna exec --scope=@dashboard/backend -- npm run prepublish",
-		"test": "lerna exec --concurrency 1 -- TZ=Europe/Paris npm test --silent",
-		"test:frontend": "lerna exec --scope=@dashboard/frontend -- TZ=Europe/Paris  npm test --silent",
-		"test:backend": "lerna exec --scope=@dashboard/backend -- TZ=Europe/Paris  npm test --silent",
-		"start": "lerna exec -- npm run start",
-		"serve:frontend": "lerna exec --scope=@dashboard/frontend -- npm run start",
-		"serve:backend": "lerna exec --scope=@dashboard/backend -- npm run start"
-	},
-	"dependencies": {},
-	"devDependencies": {
-		"lerna": "^3.13.4"
-	},
-	"workspaces": [
-		"packages/backend",
-		"packages/frontend"
-	]
+  "name": "dashboard",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "postinstall": "lerna exec -- npm install",
+    "build": "lerna exec -- npm run prepublish",
+    "build:frontend": "lerna exec --scope=@dashboard/frontend -- npm run prepublish",
+    "build:backend": "lerna exec --scope=@dashboard/backend -- npm run prepublish",
+    "test": "lerna exec --concurrency 1 -- TZ=Europe/Paris npm test --silent",
+    "test:frontend": "lerna exec --scope=@dashboard/frontend -- TZ=Europe/Paris  npm test --silent",
+    "test:backend": "lerna exec --scope=@dashboard/backend -- TZ=Europe/Paris  npm test --silent",
+    "eslint": "npm run eslint:frontend && npm run eslint:backend",
+    "eslint:frontend": "eslint packages/frontend/src/**/*.js --fix",
+    "eslint:backend": "eslint packages/backend/src/**/*.js --fix",
+    "start": "lerna exec -- npm run start",
+    "serve:frontend": "lerna exec --scope=@dashboard/frontend -- npm run start",
+    "serve:backend": "lerna exec --scope=@dashboard/backend -- npm run start"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-config-react-app": "^4.0.0",
+    "eslint-plugin-flowtype": "^3.6.1",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "lerna": "^3.13.4",
+    "prettier": "^1.17.0",
+    "sass-lint": "^1.13.1"
+  },
+  "workspaces": [
+    "packages/backend",
+    "packages/frontend"
+  ],
+  "eslintConfig": {
+    "settings": {
+      "react": {
+        "version": "16.8.6"
+      }
+    }
+  }
 }

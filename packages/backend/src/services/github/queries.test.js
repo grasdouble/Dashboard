@@ -27,7 +27,7 @@ describe('test repositorie queries', () => {
 		cursor: null,
 	};
 
-	const customQuery = `createdAt`;
+	const customQuery = 'createdAt';
 
 	it('function getListOfRepositories: User', async () => {
 		const owner = 'defunkt';

@@ -11,8 +11,8 @@ const config = {
 	...githubConfig,
 };
 
-const fetchGithub = async function(query) {
-	const response = await fetch('https://api.github.com/graphql', {
+export async function fetchGithub(query) {
+	const result = await fetch('https://api.github.com/graphql', {
 		method: 'POST',
 		headers: {
 			Authorization: `Bearer ${config.token}`,
@@ -22,22 +22,17 @@ const fetchGithub = async function(query) {
 		.then(response => response.json())
 		.then(data => data.data || data.errors);
 
-	return response;
-};
+	return result;
+}
 
-export const getUserInformations = async function(login) {
+export async function getUserInformations(login) {
 	const response = await fetchGithub(userInformations(login));
 	return response;
-};
+}
 
-export const getListOfRepositories = async function(
-	owner,
-	isOrganization,
-	pagination,
-	customQuery,
-) {
+export async function getListOfRepositories(owner, isOrganization, pagination, customQuery) {
 	const response = await fetchGithub(
 		listOfRepositories(owner, isOrganization, pagination, customQuery),
 	);
 	return response;
-};
+}

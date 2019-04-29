@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import server from 'server';
 import { getUserInformations } from './queries';
 
