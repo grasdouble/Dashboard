@@ -25,7 +25,7 @@ matrix:
               - '11'
           script:
               - npm run test:backend
-              - sonar-scanner -Dsonar.projectKey=dashboard-backend -Dsonar.projectName=Dashboard-Frontend -Dsonar.sources=./packages/backend
+              - sonar-scanner -Dsonar.projectKey=dashboard-backend -Dsonar.projectName=Dashboard-Backend -Dsonar.sources=./packages/backend
         - language: node_js
           env: NAME=test_frontend
           node_js:
