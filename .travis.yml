@@ -17,21 +17,21 @@ addons:
 matrix:
     fast_finish: true
     include:
-#        - language: node_js
-#          before_script:
-#              - .travis/before-addTokenServer.sh
-#          env: NAME=test_backend
-#          node_js:
-#              - '11'
-#          script:
-#              - npm run test:backend
+        - language: node_js
+          before_script:
+              - .travis/before-addTokenServer.sh
+          env: NAME=test_backend
+          node_js:
+              - '11'
+          script:
+              - npm run test:backend
 #              - sonar-scanner -Dsonar.projectKey=dashboard-backend -Dsonar.projectName=Dashboard-Backend -Dsonar.sources=./packages/backend
-#        - language: node_js
-#          env: NAME=test_frontend
-#          node_js:
-#              - '11'
-#          script:
-#              - npm run test:frontend
+        - language: node_js
+          env: NAME=test_frontend
+          node_js:
+              - '11'
+          script:
+              - npm run test:frontend
 #              - sonar-scanner -Dsonar.projectKey=dashboard-frontend -Dsonar.projectName=Dashboard-Frontend -Dsonar.sources=./packages/frontend
         - language: node_js
           env: NAME=full-test
