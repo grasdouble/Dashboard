@@ -34,6 +34,8 @@ matrix:
               - npm run test:frontend
 #              - sonar-scanner -Dsonar.projectKey=dashboard-frontend -Dsonar.projectName=Dashboard-Frontend -Dsonar.sources=./packages/frontend
         - language: node_js
+          before_script:
+              - .travis/before-addTokenServer.sh
           env: NAME=full-test
           node_js:
               - '11'
