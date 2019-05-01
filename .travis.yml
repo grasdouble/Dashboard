@@ -25,23 +25,23 @@ matrix:
               - '11'
           script:
               - npm run test:backend
-        #              - sonar-scanner -Dsonar.projectKey=dashboard-backend -Dsonar.projectName=Dashboard-Backend -Dsonar.sources=./packages/backend
+              - sonar-scanner -Dsonar.projectKey=dashboard-backend -Dsonar.projectName=Dashboard-Backend -Dsonar.sources=./packages/backend
         - language: node_js
           env: NAME=Test_frontend
           node_js:
               - '11'
           script:
               - npm run test:frontend
-        #              - sonar-scanner -Dsonar.projectKey=dashboard-frontend -Dsonar.projectName=Dashboard-Frontend -Dsonar.sources=./packages/frontend
-        - language: node_js
-          before_script:
-              - .travis/before-addTokenServer.sh
-          env: NAME=Sonar-Full
-          node_js:
-              - '11'
-          script:
-              - npm run test
-              - sonar-scanner -Dsonar.projectKey=grasdouble_Dashboard -Dsonar.sources=.
+              - sonar-scanner -Dsonar.projectKey=dashboard-frontend -Dsonar.projectName=Dashboard-Frontend -Dsonar.sources=./packages/frontend
+#        - language: node_js
+#          before_script:
+#              - .travis/before-addTokenServer.sh
+#          env: NAME=Sonar-Full
+#          node_js:
+#              - '11'
+#          script:
+#              - npm run test
+#              - sonar-scanner -Dsonar.projectKey=grasdouble_Dashboard -Dsonar.sources=.
 # branch safelist
 branches:
     only:
