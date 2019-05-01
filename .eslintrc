@@ -4,6 +4,7 @@
 	"plugins": ["react", "react-hooks"],
 	"rules": {
 		"arrow-parens": [2, "as-needed"],
+		"implicit-arrow-linebreak": [0, "below"],
 		"import/no-extraneous-dependencies": [
 			2,
 			{ "devDependencies": ["**/*.test.js", "**/*.spec.js"] }

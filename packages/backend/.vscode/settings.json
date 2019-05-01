@@ -1,0 +1,6 @@
+{
+	"sonarlint.connectedMode.project": {
+		"serverId": "grasdouble.io",
+		"projectKey": "dashboard-backend"
+	}
+}
