@@ -39,8 +39,8 @@ matrix:
               - '11'
           script:
               - npm run test
-              - sonar-scanner -Dsonar.projectKey=dashboard-backend -Dsonar.projectName=Dashboard-Backend -Dsonar.sources=./packages/backend
-              - sonar-scanner -Dsonar.projectKey=dashboard-frontend -Dsonar.projectName=Dashboard-Frontend -Dsonar.sources=./packages/frontend
+              #- sonar-scanner -Dsonar.projectKey=dashboard-backend -Dsonar.projectName=Dashboard-Backend -Dsonar.sources=./packages/backend
+              #- sonar-scanner -Dsonar.projectKey=dashboard-frontend -Dsonar.projectName=Dashboard-Frontend -Dsonar.sources=./packages/frontend
               - sonar-scanner -Dsonar.projectKey=grasdouble_Dashboard -Dsonar.sources=.
 # branch safelist
 branches:
