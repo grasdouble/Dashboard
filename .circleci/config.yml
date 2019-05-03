@@ -1,6 +1,8 @@
 version: 2
 orbs:
     sonarqube: onehq/sonarqube@0.3.0
+commands:
+    scanner: sonarqube/scanner
 jobs:
     build:
         docker:
@@ -89,7 +91,7 @@ jobs:
             - run:
                   name: npm-dashboard-backend
                   command: npm run test:backend -- --coverage
-            - sonarqube/scanner:
+            - scanner:
                   app: dashboard-backend
 
     frontend:
@@ -117,5 +119,5 @@ jobs:
             - run:
                   name: npm-dashboard-backend
                   command: npm run test:frontend -- --coverage
-            - sonarqube/scanner:
+            - scanner:
                   app: dashboard-frontend
