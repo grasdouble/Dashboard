@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 orbs:
     sonarqube: onehq/sonarqube@0.3.0
 commands:
