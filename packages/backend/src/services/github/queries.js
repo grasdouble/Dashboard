@@ -5,6 +5,7 @@ import { github as githubConfig } from '../../config';
 
 import { userInformations } from './graphql/user';
 import { listOfRepositories } from './graphql/repository';
+import { projectInfo } from './graphql/project';
 
 const config = {
 	...githubDefaultConfig,
@@ -26,3 +27,6 @@ export const getUserInformations = async login => fetchGithub(userInformations(l
 
 export const getListOfRepositories = async (owner, isOrganization, pagination, customQuery) =>
 	fetchGithub(listOfRepositories(owner, isOrganization, pagination, customQuery));
+
+export const getProjectInfo = async (owner, repository, projectNumber, customQuery) =>
+	fetchGithub(projectInfo(owner, repository, projectNumber, customQuery));
