@@ -22,15 +22,15 @@
     "testRegex": "&*\\.test\\.js$"
   },
   "dependencies": {
-    "node-fetch": "^2.3.0",
-    "server": "^1.0.18"
+    "node-fetch": "^2.6.0",
+    "server": "^1.0.21"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-transform-runtime": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/runtime": "^7.4.3",
-    "jest": "^24.7.1"
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/runtime": "^7.7.6",
+    "jest": "^24.9.0"
   }
 }
