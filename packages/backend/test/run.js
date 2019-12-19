@@ -28,17 +28,13 @@ const normalize = (method, url, port, opts) => {
 	return options;
 };
 
-const testTypeOfMiddle = middle => {
-	return (
-		typeof middle[0] === 'undefined' ||
-		typeof middle[0] === 'boolean' ||
-		typeof middle[0] === 'string'
-	);
-};
+const testTypeOfMiddle = middle =>
+	typeof middle[0] === 'undefined' ||
+	typeof middle[0] === 'boolean' ||
+	typeof middle[0] === 'string';
 
-const testValueMiddle = middle => {
-	return middle === null || middle instanceof Function || middle instanceof Array;
-};
+const testValueMiddle = middle =>
+	middle === null || middle instanceof Function || middle instanceof Array;
 
 // Parse the server options
 const serverOptions = async middle => {
