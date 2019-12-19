@@ -12,12 +12,14 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
+      "src/**/*.js",
+      "!src/app.js",
       "!**/node_modules/**",
       "!**/__snapshots__/**"
     ],
     "roots": [
-      "src"
+      "src",
+      "test"
     ],
     "testRegex": "&*\\.test\\.js$"
   },
@@ -31,6 +33,7 @@
     "@babel/plugin-transform-runtime": "^7.7.6",
     "@babel/preset-env": "^7.7.6",
     "@babel/runtime": "^7.7.6",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "request-promises": "^1.1.0"
   }
 }
