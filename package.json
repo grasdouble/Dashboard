@@ -13,7 +13,7 @@
     "build:backend": "lerna exec --scope=@dashboard/backend -- npm run prepublish",
     "test": "lerna exec --concurrency 1 -- TZ=Europe/Paris npm test --silent -- --coverage",
     "test:frontend": "lerna exec --scope=@dashboard/frontend -- TZ=Europe/Paris  npm test --silent",
-    "test:backend": "lerna exec --scope=@dashboard/backend -- TZ=Europe/Paris  npm test --silent",
+    "test:backend": "lerna exec --scope=@dashboard/backend -- TZ=Europe/Paris  npm test --silent -- --coverage",
     "eslint": "npm run eslint:frontend && npm run eslint:backend",
     "eslint:frontend": "eslint packages/frontend/src/**/*.js --fix",
     "eslint:backend": "eslint packages/backend/src/**/*.js --fix",
@@ -33,7 +33,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-react-hooks": "^2.3.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "lerna": "^3.19.0",
     "prettier": "^1.19.1",
     "sass-lint": "^1.13.1"
