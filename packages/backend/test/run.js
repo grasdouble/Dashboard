@@ -62,7 +62,8 @@ const serverOptions = async middle => {
 	return opts;
 };
 
-module.exports = function run(...middle) {
+// eslint-disable-next-line func-names
+module.exports = function(...middle) {
 	// Make sure we are working with an instance
 	if (!(this instanceof module.exports)) {
 		// eslint-disable-next-line new-cap
