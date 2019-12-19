@@ -7,7 +7,9 @@ import portFn from './port';
 const normalize = (method, url, port, opts) => {
 	let options = opts;
 	// Make sure it's a simple object
-	if (typeof options === 'string') options = { url: options };
+	if (typeof options === 'string') {
+		options = { url: options };
+	}
 
 	// Assign independent parts
 	options = { ...options, url, method };
@@ -26,27 +28,33 @@ const normalize = (method, url, port, opts) => {
 	return options;
 };
 
+const testTypeOfMiddle = middle => {
+	return (
+		typeof middle[0] === 'undefined' ||
+		typeof middle[0] === 'boolean' ||
+		typeof middle[0] === 'string'
+	);
+};
+
+const testValueMiddle = middle => {
+	return middle === null || middle instanceof Function || middle instanceof Array;
+};
+
 // Parse the server options
 const serverOptions = async middle => {
 	// First parameter can be:
 	// - options: Number || Object (cannot be ID'd)
 	// - middleware: undefined || null || Boolean || Function || Array
-	let opts =
-		typeof middle[0] === 'undefined' ||
-		typeof middle[0] === 'boolean' ||
-		typeof middle[0] === 'string' ||
-		middle[0] === null ||
-		middle[0] instanceof Function ||
-		middle[0] instanceof Array
-			? {}
-			: middle.shift();
+	let opts = testTypeOfMiddle(middle[0]) || testValueMiddle(middle[0]) ? {} : middle.shift();
 
 	// In case the port is the defaults one
 	const synthetic = !opts || !opts.port;
 	await opts;
 
 	// Create the port when none was specified
-	if (synthetic) opts.port = portFn();
+	if (synthetic) {
+		opts.port = portFn();
+	}
 
 	// Be able to set global variables from outside
 	opts = { ...opts, ...(module.exports.options || {}), env: undefined, secret: undefined };
@@ -54,8 +62,7 @@ const serverOptions = async middle => {
 	return opts;
 };
 
-// eslint-disable-next-line func-names
-module.exports = function(...middle) {
+module.exports = function run(...middle) {
 	// Make sure we are working with an instance
 	if (!(this instanceof module.exports)) {
 		// eslint-disable-next-line new-cap
@@ -79,7 +86,9 @@ module.exports = function(...middle) {
 			new Promise((resolve, reject) => {
 				ctx.server.close(err => (err ? reject(err) : resolve()));
 			});
-		if (!method) return ctx;
+		if (!method) {
+			return ctx;
+		}
 		const res = await request(normalize(method, url, ctx.options.port, reqOpts));
 		res.method = res.request.method;
 		res.status = res.statusCode;
@@ -114,7 +123,6 @@ module.exports = function(...middle) {
 					res.rawBody = res.body;
 					res.body = JSON.parse(res.body);
 				}
-				// console.log(instance);
 				res.ctx = instance;
 				return res;
 			};
