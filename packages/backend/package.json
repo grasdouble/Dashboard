@@ -25,7 +25,7 @@
     "testRegex": "&*\\.test\\.js$"
   },
   "dependencies": {
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "server": "^1.0.21"
   },
   "devDependencies": {
