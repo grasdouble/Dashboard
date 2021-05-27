@@ -65,9 +65,10 @@ typings/
 ## Manual ##
 .DS_Store
 dist/
+build/
 
 # server
-server/src/config.js
+packages/backend/src/config.js
 
 # frontend
 

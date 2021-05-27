@@ -1,0 +1,52 @@
+git:
+    quiet: true
+
+cache:
+    yarn: true
+    directories:
+        - node_modules
+notifications:
+    email: false
+
+addons:
+    sonarcloud:
+        organization: 'grasdouble'
+        token:
+            secure: '6lQT9vTqPel/feC412GJNkA3m4rrBDxkyXMQ+SsD7QrbaIEUFUT1UPXj65iPh7CrdsuNu1cHb4ROs8m9wsqnOERPXynF84gd09MWMLZROonRRuxcDYgZHgdy/N22rtmN3X7vXr5CUsef8rOEIFrrQqAXUachoJ7AFkffd40jGpNbtIH1Wn3pqjczHImxE/uiVOeDRl/OTsxrS0SMbW/h97H1AYYJ5cFXta2iqjI+R2mspRvCUnzf9mEOeN9lctpWePNbqRhs5B6k5Qvafnd4v8s70WZuQxkkPPIBX8XABSSSgQulnMd/YMIxBTR0fBJyziktxWeohCloKvGi7+Q4+NqlSUjMPm/e5U+MEi9T2HyfdtF7vE7umOaNAMlfVP7ck0w+hKIyfdpFCntOGx5PU+mgkluj0dGYgLhvF2aQe5GGpai40ixu2HB8JM1MfvRRfrmTqDtFKfSS5PhlupnSOQVf8p2Dixj47FxFPH/fUMR7ZT7SKMGAEBy2o//l9LSysC8MNYsiS2UL1RAvK+rxjpUYi/HEocOdNokMxIVPAPrvMi5QekuEob4aIwlcIcz0X9jNWTprn555oqLGW3HAj9z+M0cuiSRkKcBhIlzxPykbDM8JMA0UzmdjtJfvF/P7u8G2KA9oDQRjLaNMsSGVybp8lWVDjzG6kpsB3gTBNRs='
+
+matrix:
+    fast_finish: true
+    include:
+        - language: node_js
+          before_script:
+              - .travis/before-addTokenServer.sh
+          env: NAME=Test_backend
+          node_js:
+              - '11'
+          script:
+              - npm run test:backend
+        - language: node_js
+          env: NAME=Test_frontend
+          node_js:
+              - '11'
+          script:
+              - npm run test:frontend
+        - language: node_js
+          before_script:
+              - .travis/before-addTokenServer.sh
+          env: NAME=Sonar-Full
+          node_js:
+              - '11'
+          script:
+              - npm run test
+              - sonar-scanner -Dsonar.projectKey=dashboard-backend -Dsonar.projectName=Dashboard-Backend -Dsonar.sources=./packages/backend
+              - sonar-scanner -Dsonar.projectKey=dashboard-frontend -Dsonar.projectName=Dashboard-Frontend -Dsonar.sources=./packages/frontend
+              - sonar-scanner -Dsonar.projectKey=grasdouble_Dashboard -Dsonar.sources=.
+# branch safelist
+branches:
+    only:
+        - develop
+        - master
+        - /^greenkeeper/.*$/
+
+language: node_js

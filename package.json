@@ -1,0 +1,52 @@
+{
+  "name": "dashboard",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "audit": "lerna exec -- npm audit",
+    "audit:frontend": "lerna exec --scope=@dashboard/frontend -- npm audit",
+    "audit:backend": "lerna exec --scope=@dashboard/backend -- npm audit",
+    "postinstall": "lerna exec -- npm install",
+    "build": "lerna exec -- npm run prepublish",
+    "build:frontend": "lerna exec --scope=@dashboard/frontend -- npm run prepublish",
+    "build:backend": "lerna exec --scope=@dashboard/backend -- npm run prepublish",
+    "test": "lerna exec --concurrency 1 -- TZ=Europe/Paris npm test --silent -- --coverage",
+    "test:frontend": "lerna exec --scope=@dashboard/frontend -- TZ=Europe/Paris  npm test --silent",
+    "test:backend": "lerna exec --scope=@dashboard/backend -- TZ=Europe/Paris  npm test --silent -- --coverage",
+    "eslint": "npm run eslint:frontend && npm run eslint:backend",
+    "eslint:frontend": "eslint packages/frontend/src/**/*.js --fix",
+    "eslint:backend": "eslint packages/backend/src/**/*.js --fix",
+    "start": "lerna exec -- npm run start",
+    "serve:frontend": "lerna exec --scope=@dashboard/frontend -- npm run start",
+    "serve:backend": "lerna exec --scope=@dashboard/backend -- npm run start"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-react-app": "^5.1.0",
+    "eslint-plugin-flowtype": "^4.5.2",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "lerna": "^3.19.0",
+    "prettier": "^1.19.1",
+    "sass-lint": "^1.13.1"
+  },
+  "workspaces": [
+    "packages/backend",
+    "packages/frontend"
+  ],
+  "eslintConfig": {
+    "settings": {
+      "react": {
+        "version": "16.12.0"
+      }
+    }
+  }
+}
